@@ -1,0 +1,201 @@
+# i3 config file (v4)
+# Douglas Royds
+# See http://i3wm.org/docs/userguide.html
+
+# Windows key
+set $mod Mod4
+
+# ------------------------------------------- Application key bindings ----------------------------------------------
+
+bindsym $mod+d exec dmenu_run
+bindsym $mod+q exec quickswitch.py
+bindsym $mod+Return exec gnome-terminal
+
+bindsym Control+Mod1+B exec gnome-terminal --command edit_time_break_down
+bindsym Control+Mod1+D exec gnome-terminal --command "sh -c 'print_daily_hours | less'"
+bindsym Control+Mod1+J exec gnome-terminal --profile=jenkins --command "ssh jenkins@ws3135"
+bindsym Control+Mod1+K exec keepass2_autotype
+bindsym Control+Mod1+L exec i3lock -dti /home/douglas/Documents/Technology/Computers/Wallpapers/STEREO-SunMillionDegreeAtmosphere.png
+bindsym Control+Mod1+N exec nautilus --no-desktop
+bindsym Control+Mod1+P exec pomodoro
+bindsym Control+Mod1+T exec gnome-terminal --profile=ssh --command "ssh root@tatyana"
+bindsym Control+Mod1+W exec rdesktop -g1920x1080 ws1883
+
+# Special keys
+bindsym XF86HomePage exec firefox
+bindsym XF86Mail exec thunderbird -compose
+bindsym XF86Search exec thunderbird
+bindsym XF86Calculator exec gnome-calculator
+for_window [class="Gnome-calculator"] floating enable
+bindsym XF86AudioPlay exec rhythmbox-client --play-pause
+bindsym XF86Back exec rhythmbox-client --previous
+bindsym XF86Forward exec rhythmbox-client --next
+
+# Print screen
+#     I've done it the hard way here, just for fun.
+#     xprop returns the current window ID.
+#     ImageMagick import captures a screenshot of the window.
+# Ctrl-PrtScn
+#     Does it the easy way - using gnome-screenshot, which pops up an interactive box
+bindsym Print exec import -window $(xprop -root _NET_ACTIVE_WINDOW | cut -d' ' -f5) ~/screenshot_$(/bin/date +%Y%m%dT%H%M%S).png
+bindsym Control+Print exec gnome-screenshot --interactive
+for_window [class="Gnome-screenshot"] floating enable
+
+# ------------------------------------------- Focus -----------------------------------------------------------------
+
+# Change focus
+# I prefer Vim movement keys
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+# I prefer Vim movement keys
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+J move down
+bindsym $mod+Shift+K move up
+bindsym $mod+Shift+L move right
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+focus_follows_mouse yes
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Focus the parent/child container
+bindsym $mod+a focus parent
+#bindcode $mod+d focus child
+
+# ------------------------------------------- Layout ----------------------------------------------------------------
+
+# Container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+# Splits
+# I use Vim movement keys, so I've set split horizontal to use semicolon
+bindsym $mod+semicolon split h
+bindsym $mod+v         split v
+
+# Fullscreen
+bindsym $mod+f fullscreen
+
+# Tiling / floating
+#     mod+Mouse               Move floating window
+#     mod+RightMouse          Resize floating window
+#     mod+Shift+RightMouse    Resize in proportion
+bindsym $mod+Shift+space floating toggle
+floating_modifier $mod
+
+# Font for window titles. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# New windows
+new_window 1pixel
+workspace_layout tabbed
+#for_window [class="Gnome-terminal"] layout tabbed
+#for_window [class="Firefox"] layout tabbed
+#for_window [class="Thunderbird"] layout tabbed
+
+# ------------------------------------------- Workspaces ------------------------------------------------------------
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+exclam move workspace 1
+bindsym $mod+Shift+at move workspace 2
+bindsym $mod+Shift+numbersign move workspace 3
+bindsym $mod+Shift+dollar move workspace 4
+bindsym $mod+Shift+percent move workspace 5
+bindsym $mod+Shift+asciicircum move workspace 6
+bindsym $mod+Shift+ampersand move workspace 7
+bindsym $mod+Shift+asterisk move workspace 8
+bindsym $mod+Shift+parenleft move workspace 9
+bindsym $mod+Shift+parenright move workspace 10
+
+# Multiple monitors
+workspace 1 output DVI-I-1
+workspace 2 output VGA-1
+workspace 3 output DVI-I-1
+workspace 4 output VGA-1
+workspace 5 output DVI-I-1
+workspace 6 output VGA-1
+workspace 7 output DVI-I-1
+workspace 8 output VGA-1
+workspace 9 output DVI-I-1
+workspace 10 output VGA-1
+
+# ------------------------------------------- Control ---------------------------------------------------------------
+
+# Kill focused window
+bindsym $mod+Shift+Q kill
+
+# Reload, restart (preserving layout and session), log out
+bindsym $mod+Shift+C reload
+bindsym $mod+Shift+R restart
+bindsym $mod+Shift+E exit
+
+# Start i3bar
+# See man i3status and ~/.i3status.conf
+# I use my own i3status_append wrapper-script to prepend or append my own functionality
+bar {
+   status_command i3status_append
+   mode hide
+}
+
+# ------------------------------------------- Resize ----------------------------------------------------------------
+
+mode "resize" {
+   # These bindings trigger as soon as you enter the resize mode
+   # They resize the border in the direction you pressed, e.g.
+   # when pressing left, the window is resized so that it has more space on its left
+   bindsym h resize grow left 10 px or 5 ppt
+   bindsym j resize grow down 10 px or 5 ppt
+   bindsym k resize grow up 10 px or 5 ppt
+   bindsym l resize grow right 10 px or 5 ppt
+   bindsym Shift+H resize shrink left 10 px or 5 ppt
+   bindsym Shift+J resize shrink down 10 px or 5 ppt
+   bindsym Shift+K resize shrink up 10 px or 5 ppt
+   bindsym Shift+L resize shrink right 10 px or 5 ppt
+
+   # same bindings, but for the arrow keys
+   bindsym Left  resize shrink left 10 px or 5 ppt
+   bindsym Down  resize shrink down 10 px or 5 ppt
+   bindsym Up    resize shrink up 10 px or 5 ppt
+   bindsym Right resize shrink right 10 px or 5 ppt
+   bindsym Shift+Left  resize grow left 10 px or 5 ppt
+   bindsym Shift+Down  resize grow down 10 px or 5 ppt
+   bindsym Shift+Up    resize grow up 10 px or 5 ppt
+   bindsym Shift+Right resize grow right 10 px or 5 ppt
+
+   # back to normal: Enter or Escape
+   bindsym Return mode "default"
+   bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# ------------------------------------------- Start-up --------------------------------------------------------------
+
+#exec gnome-settings-daemon
+exec xrandr --output VGA-1 --auto --right-of DVI-I-1
+
