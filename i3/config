@@ -74,6 +74,13 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
+# Mouse moving and resizing
+#     mod+Mouse               Move floating window
+#     mod+RightMouse          Resize floating window
+#     mod+Shift+RightMouse    Resize in proportion
+bindsym $mod+Shift+space floating toggle
+floating_modifier $mod
+
 # ------------------------------------------- Layout ----------------------------------------------------------------
 
 # Container layout (stacked, tabbed, default)
@@ -92,22 +99,12 @@ bindsym $mod+v         split h
 # Fullscreen
 bindsym $mod+f fullscreen
 
-# Tiling / floating
-#     mod+Mouse               Move floating window
-#     mod+RightMouse          Resize floating window
-#     mod+Shift+RightMouse    Resize in proportion
-bindsym $mod+Shift+space floating toggle
-floating_modifier $mod
-
 # Font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # New windows
 new_window 1pixel
 workspace_layout tabbed
-#for_window [class="Gnome-terminal"] layout tabbed
-#for_window [class="Firefox"] layout tabbed
-#for_window [class="Thunderbird"] layout tabbed
 
 # ------------------------------------------- Workspaces ------------------------------------------------------------
 
@@ -165,7 +162,7 @@ bar {
    mode hide
 }
 
-# ------------------------------------------- Resize ----------------------------------------------------------------
+# ------------------------------------------- Resize mode -----------------------------------------------------------
 
 mode "resize" {
    # These bindings trigger as soon as you enter the resize mode
