@@ -82,9 +82,12 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
 
 # Splits
-# I use Vim movement keys, so I've set split horizontal to use semicolon
-bindsym $mod+semicolon split h
-bindsym $mod+v         split v
+# I use Vim movement keys, so I've set split horizontal to use semicolon.
+# I have also reversed the sense of i3's "horizontal" and "vertical" to match the way Vim uses them:
+#     vertical = the two windows will have a vertical split line, ie. they will be side-by-side
+#     horizontal = the two windows have a horizontal split line.
+bindsym $mod+semicolon split v
+bindsym $mod+v         split h
 
 # Fullscreen
 bindsym $mod+f fullscreen
