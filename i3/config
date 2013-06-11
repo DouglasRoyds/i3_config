@@ -30,6 +30,8 @@ for_window [class="Gnome-calculator"] floating enable
 bindsym XF86AudioPlay exec rhythmbox-client --play-pause
 bindsym XF86Back exec rhythmbox-client --previous
 bindsym XF86Forward exec rhythmbox-client --next
+bindsym XF86AudioRaiseVolume exec amixer set Master 3dB+
+bindsym XF86AudioLowerVolume exec amixer set Master 3dB-
 
 # Print screen
 #     I've done it the hard way here, just for fun.
