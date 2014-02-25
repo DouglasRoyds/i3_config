@@ -39,7 +39,7 @@ bindsym XF86AudioLowerVolume exec amixer set Master 3dB-
 #     ImageMagick import captures a screenshot of the window.
 # Ctrl-PrtScn
 #     Does it the easy way - using gnome-screenshot, which pops up an interactive box
-bindsym Print exec import -window $(xprop -root _NET_ACTIVE_WINDOW | cut -d' ' -f5) ~/screenshot_$(/bin/date +%Y%m%dT%H%M%S).png
+bindsym Print exec import -window $(xprop -root _NET_ACTIVE_WINDOW | cut -d' ' -f5) "Screenshot from $(/bin/date +'%Y-%m-%d %H:%M:%S').png"
 bindsym Control+Print exec gnome-screenshot --interactive
 for_window [class="Gnome-screenshot"] floating enable
 
