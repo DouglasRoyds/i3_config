@@ -7,6 +7,9 @@ set $mod Mod4
 
 # ------------------------------------------- Application key bindings ----------------------------------------------
 
+# quickswitch.py allows you to quickly switch to and locate windows on all your workspaces, using an interactive dmenu prompt:
+#     https://pypi.python.org/pypi/quickswitch-i3
+#     https://github.com/proxypoke/quickswitch-for-i3
 bindsym $mod+d exec dmenu_run
 bindsym $mod+q exec quickswitch.py
 bindsym $mod+Return exec gnome-terminal
@@ -158,7 +161,8 @@ bindsym $mod+Shift+E exit
 
 # Start i3bar
 # See man i3status and ~/.i3status.conf
-# I use my own i3status_append wrapper-script to prepend or append my own functionality
+# I use my own i3status_append wrapper-script to prepend or append my own functionality:
+#     https://github.com/DouglasRoyds/utilities_douglas
 bar {
    status_command i3status_append
    mode hide
