@@ -202,6 +202,5 @@ bindsym $mod+r mode "resize"
 
 # ------------------------------------------- Start-up --------------------------------------------------------------
 
-#exec gnome-settings-daemon
 exec xrandr --output VGA-1 --auto --right-of DVI-I-1
 
