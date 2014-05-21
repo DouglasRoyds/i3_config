@@ -29,12 +29,15 @@ bindsym XF86HomePage exec firefox
 bindsym XF86Mail exec thunderbird -compose
 bindsym XF86Search exec thunderbird
 bindsym XF86Calculator exec gnome-calculator
-for_window [class="Gnome-calculator"] floating enable
 bindsym XF86AudioPlay exec rhythmbox-client --play-pause
 bindsym XF86Back exec rhythmbox-client --previous
 bindsym XF86Forward exec rhythmbox-client --next
 bindsym XF86AudioRaiseVolume exec amixer set Master 3dB+
 bindsym XF86AudioLowerVolume exec amixer set Master 3dB-
+
+# Even though xprop WM_CLASS returns "gcalctool", "Gcalctool" for the calculator,
+# I have to use the capitalised version for this to work.
+for_window [class="Gcalctool"] floating enable
 
 # Print screen
 #     I've done it the hard way here, just for fun.
