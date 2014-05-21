@@ -19,7 +19,7 @@ bindsym Control+Mod1+D exec gnome-terminal --command "sh -c 'print_daily_hours |
 bindsym Control+Mod1+J exec gnome-terminal --profile=jenkins --command "ssh jenkins@humboldt"
 bindsym Control+Mod1+K exec keepass2_autotype
 bindsym Control+Mod1+L exec i3lock -dti /home/douglas/Documents/Technology/Computers/Wallpapers/STEREO-SunMillionDegreeAtmosphere.png
-bindsym Control+Mod1+N exec nautilus --no-desktop
+bindsym Control+Mod1+N exec nautilus
 bindsym Control+Mod1+P exec pomodoro
 bindsym Control+Mod1+T exec gnome-terminal --profile=ssh --command "ssh root@tatyana"
 bindsym Control+Mod1+W exec rdesktop -g1920x1080 ws1883
