@@ -1,0 +1,25 @@
+#!/bin/sh
+# Generate an i3 config file by catting together all the relevant .config files in ~/.i3/
+
+config=$(mktemp)
+
+(
+   # Any display connected locally at all?
+   if (xrandr | grep -q connected); then
+      cat ~/.i3/local.config
+   else
+      cat ~/.i3/remote.config
+   fi
+
+   cat ~/.i3/config.d/*.config
+   cat ~/.i3/hosts.d/$(hostname).config
+
+   # Append any specific per-display config
+   for display in $(xrandr | gawk '/\<connected\>/{print $1}'); do
+      cat ~/.i3/displays.d/$display.config
+   done
+) 2>/dev/null >> $config
+
+i3 -c $config
+rm $config
+
