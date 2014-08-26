@@ -1,0 +1,11 @@
+# Get-out-of-gaol ~/.i3/config file
+# I am launching i3 via my i3-launch script.
+# If I ever (accidentally) launch it via a direct invocation of i3,
+# this (default) config file will at least let me get a terminal and log out.
+# Otherwise unused.
+
+# Use the Windows key
+set $mod Mod4
+bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Shift+E exit
+
