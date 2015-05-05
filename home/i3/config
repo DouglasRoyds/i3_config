@@ -6,6 +6,7 @@
 
 # Use the Windows key
 set $mod Mod4
+bindsym $mod+d exec dmenu_run
 bindsym $mod+Return exec x-terminal-emulator
 bindsym $mod+Shift+E exit
 
