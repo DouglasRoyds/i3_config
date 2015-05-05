@@ -7,6 +7,7 @@ exec_prefix = $(prefix)
 bindir = $(exec_prefix)/bin
 datarootdir = $(prefix)/share
 docdir = $(datarootdir)/doc/$(PACKAGE)
+xsessiondir = /usr/share/xsessions
 DESTDIR = /
 pwd = $(shell pwd)
 
@@ -14,6 +15,8 @@ executables = bin/i3-launch \
 	      bin/i3status_append
 
 docfiles = $(wildcard *.md)
+
+session_files = i3-douglas.desktop
 
 help:
 	@echo "An install-only makefile to allow easy running of checkinstall:"
@@ -27,8 +30,10 @@ help:
 install:
 	@install -d $(DESTDIR)$(bindir)
 	@install -d $(DESTDIR)$(docdir)
+	@install -d $(DESTDIR)$(xsessiondir)
 	@install -v -m775 $(executables) $(DESTDIR)$(bindir)
 	@install -v -m664 $(docfiles) $(DESTDIR)$(docdir)
+	@install -v -m644 $(session_files) $(DESTDIR)$(xsessiondir)
 
 checkinstall:
 	checkinstall --pkgname=$(PACKAGE) --nodoc
