@@ -12,7 +12,9 @@ DESTDIR = /
 pwd = $(shell pwd)
 
 executables = bin/i3-launch \
-	      bin/i3status_append
+              bin/i3lock-posthook \
+              bin/i3lock-prehook \
+              bin/i3status_append \
 
 docfiles = $(wildcard *.md)
 
