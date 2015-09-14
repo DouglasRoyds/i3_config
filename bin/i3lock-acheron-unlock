@@ -2,4 +2,5 @@
 
 logger -t i3lock posthook
 nohup skype &
+add_todays_date_to_time_break_down
 
