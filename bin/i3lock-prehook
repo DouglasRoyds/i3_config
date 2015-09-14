@@ -1,4 +1,5 @@
 #!/bin/sh -e
 
-: # Do nothing yet
+logger -t i3lock prehook
+killall skype || true
 
