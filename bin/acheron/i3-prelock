@@ -1,5 +1,6 @@
 #!/bin/sh -e
 
-logger -t i3lock prehook
+logger -t i3_config i3-prelock
+
 killall skype || true
 

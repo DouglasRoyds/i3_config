@@ -10,11 +10,11 @@ docdir = $(datarootdir)/doc/$(PACKAGE)
 xsessiondir = /usr/share/xsessions
 DESTDIR = /
 pwd = $(shell pwd)
+hostname = $(shell hostname)
 
 executables = bin/i3-launch \
-              bin/i3lock-acheron-prelock \
-              bin/i3lock-acheron-unlock \
               bin/i3status_append \
+              $(or $(wildcard bin/$(hostname)/*), $(wildcard bin/default/*)) \
 
 docfiles = $(wildcard *.md)
 
