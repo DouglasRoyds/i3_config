@@ -3,4 +3,5 @@
 logger -t i3_config i3-prelock
 
 killall skype || true
+killall zoiper || true
 
