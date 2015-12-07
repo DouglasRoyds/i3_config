@@ -1,7 +1,7 @@
 #!/bin/sh
 # Prepend or append stuff onto the i3status output,
 # as recommended by man i3status.
-# The hell sed-line is inserting the following json entry:
+# The hell sed-lines are inserting json entries:
 #
 #     {"name":"pomodoro","full_text":"12 min"}
 #
@@ -19,6 +19,8 @@ i3status | while true; do
          read line
          # ,[{"name":"cpu_usage","full_text":"00%"}, ... ,{"name":"time","full_text":"Monday # 03 Dec 2012 12:28PM"}]
          echo $line |
-            sed 's#{"name":#{"name":"pomodoro","full_text":"'"$(pomodoro_remaining_time)"'"},&#'
+            sed 's#{"name":#{"name":"temperature","full_text":"'"$(current_temperature)"'"},&#' |
+            sed 's#{"name":#{"name":"pomodoro","full_text":"'"$(pomodoro_remaining_time)"'"},&#' |
+            cat
 done
 
