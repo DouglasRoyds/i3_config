@@ -14,6 +14,8 @@ hostname = $(shell hostname)
 
 executables = bin/i3-launch \
               bin/i3status_append \
+              bin/current_temperature \
+              bin/current_temperature_from_northcott \
               $(or $(wildcard bin/$(hostname)/*), $(wildcard bin/default/*)) \
 
 docfiles = $(wildcard *.md)
@@ -45,4 +47,9 @@ checkinstall:
 	@echo "   $$ ln -s $(pwd)/home/i3/ ~/.i3 &&"
 	@echo "     ln -s $(pwd)/home/i3status.conf ~/.i3status.conf &&"
 	@echo "     ln -s $(pwd)/home/xsession ~/.xsession"
+	@echo
+	@echo "You should also add a current temperature script to your crontab:"
+	@echo
+	@echo "   $$ crontab -e"
+	@echo "   */15 * * * * /usr/local/bin/current_temperature_from_northcott > ~/.current_temperature"
 

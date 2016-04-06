@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cat ~/.current_temperature 2>/dev/null || echo None
+
