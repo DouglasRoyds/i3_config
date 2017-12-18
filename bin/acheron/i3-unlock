@@ -2,8 +2,6 @@
 
 logger -t i3_config i3-unlock
 
-# Skype is configured to run minimised
-nohup skype &
 nohup zoiper &
 add_todays_date_to_time_break_down
 
