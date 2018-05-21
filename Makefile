@@ -46,7 +46,8 @@ checkinstall:
 	@echo
 	@echo "   $$ ln -s $(pwd)/home/i3/ ~/.i3 &&"
 	@echo "     ln -s $(pwd)/home/i3status.conf ~/.i3status.conf &&"
-	@echo "     ln -s $(pwd)/home/xsession ~/.xsession"
+	@echo "     ln -s $(pwd)/home/xsession ~/.xsession &&"
+	@echo "     ls -l ~/.i3 ~/.i3status.conf ~/.xsession"
 	@echo
 	@echo "You should also add a current temperature script to your crontab:"
 	@echo
