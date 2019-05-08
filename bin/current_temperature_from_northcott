@@ -2,8 +2,6 @@
 set -e
 set -o pipefail
 
-export http_proxy="http://proxyhost:3128"
-
 curl http://weather.northcott.nz/current_conditions/current_conditions.html |&
    grep -A1 archivetable..Temperature |
    tail -n1 |
