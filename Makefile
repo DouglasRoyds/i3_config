@@ -24,9 +24,11 @@ session_files = i3-douglas.desktop
 
 help:
 	@echo "An install-only makefile to allow easy running of checkinstall:"
+	@echo
 	@echo "   $$ sudo make checkinstall"
 	@echo
 	@echo "Installs the following executables:"
+	@echo
 	@echo -n "   "; echo $(executables) | sed 's# \+#\n   #g'
 	@echo
 	@echo "You will have to manually symlink the config files into ~/.i3"
