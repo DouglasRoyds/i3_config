@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=i3 Douglas
-Comment=i3 launched with a constructed config file
-Exec=i3-launch
-Type=Application

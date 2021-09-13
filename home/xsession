@@ -1,4 +1,0 @@
-#!/bin/sh
-# Install me as ~/.xsession
-
-exec i3-launch
