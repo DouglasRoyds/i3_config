@@ -1,7 +1,0 @@
-#!/bin/sh -e
-
-logger -t i3_config i3-unlock
-
-nohup zoiper &
-add_todays_date_to_time_break_down
-

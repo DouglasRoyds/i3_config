@@ -13,10 +13,11 @@ pwd = $(shell pwd)
 hostname = $(shell hostname)
 
 executables = bin/i3-launch \
+              bin/i3-prelock \
+              bin/i3-unlock \
               bin/i3-status-append \
               bin/current_temperature \
-              bin/current_temperature_from_northcott \
-              $(or $(wildcard bin/$(hostname)/*), $(wildcard bin/default/*)) \
+              bin/current_temperature_from_northcott
 
 docfiles = $(wildcard *.md)
 

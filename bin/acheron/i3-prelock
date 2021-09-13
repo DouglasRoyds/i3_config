@@ -1,6 +1,0 @@
-#!/bin/sh -e
-
-logger -t i3_config i3-prelock
-
-killall zoiper || true
-
