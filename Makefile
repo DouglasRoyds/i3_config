@@ -7,6 +7,7 @@ exec_prefix = $(prefix)
 bindir = $(exec_prefix)/bin
 datarootdir = $(prefix)/share
 docdir = $(datarootdir)/doc/$(PACKAGE)
+pixmaps = $(datarootdir)/pixmaps/$(PACKAGE)
 DESTDIR = /
 pwd = $(shell pwd)
 hostname = $(shell hostname)
@@ -16,9 +17,12 @@ executables = bin/i3-locknow \
               bin/i3-unlock \
               bin/i3-status-append \
               bin/current_temperature \
-              bin/current_temperature_from_northcott
+              bin/current_temperature_from_northcott \
+              bin/devmon-launch
 
 docfiles = $(wildcard *.md)
+
+imagefiles = pixmaps/floppy-disk.png
 
 help:
 	@echo "An install-only makefile to allow easy running of checkinstall:"
@@ -34,8 +38,10 @@ help:
 install:
 	@install -d $(DESTDIR)$(bindir)
 	@install -d $(DESTDIR)$(docdir)
+	@install -d $(DESTDIR)$(pixmaps)
 	@install -v -m775 $(executables) $(DESTDIR)$(bindir)
 	@install -v -m664 $(docfiles) $(DESTDIR)$(docdir)
+	@install -v -m664 $(imagefiles) $(DESTDIR)$(pixmaps)
 
 checkinstall:
 	checkinstall --pkgname=$(PACKAGE) --nodoc

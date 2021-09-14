@@ -197,8 +197,4 @@ bindsym $mod+r mode "resize"
 # ------------------------------------------- Start-up --------------------------------------------------------------
 
 exec --no-startup-id i3-unlock
-exec --no-startup-id devmon --exec-on-drive 'notify-send \"Mounted %l\"' \
-                            --ignore-label RECOVERY \
-                            --ignore-label DellUtility \
-                                 2>&1 | logger
-
+exec --no-startup-id devmon-launch

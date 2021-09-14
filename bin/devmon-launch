@@ -1,0 +1,13 @@
+#!/bin/sh -e
+
+floppy_icon=/usr/local/share/pixmaps/i3-config/floppy-disk.png
+
+# Only launch one instance
+if ! pgrep --exact devmon; then
+   devmon --exec-on-drive "notify-send -i $floppy_icon Mounted %l" \
+          --ignore-label RECOVERY \
+          --ignore-label DellUtility \
+               2>&1 | logger -t devmon &
+   pgrep --exact devmon
+fi
+
