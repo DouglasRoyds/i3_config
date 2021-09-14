@@ -11,7 +11,8 @@ DESTDIR = /
 pwd = $(shell pwd)
 hostname = $(shell hostname)
 
-executables = bin/i3-prelock \
+executables = bin/i3-locknow \
+              bin/i3-prelock \
               bin/i3-unlock \
               bin/i3-status-append \
               bin/current_temperature \

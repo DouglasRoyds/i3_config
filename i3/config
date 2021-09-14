@@ -154,8 +154,7 @@ bindsym $mod+Shift+asterisk move workspace 8
 bindsym $mod+Shift+Q kill
 
 # Screen-lock
-set $lock_image ~/.config/i3/wallpaper
-bindsym Control+Mod1+L exec i3-prelock && i3lock -nt -i $lock_image && i3-unlock
+bindsym Control+Mod1+L exec i3-locknow
 
 # Reload, restart (preserving layout and session), log out
 bindsym $mod+Shift+C reload

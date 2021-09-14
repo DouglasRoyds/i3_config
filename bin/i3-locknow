@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+i3-prelock 
+i3lock --nofork --tiling --image ~/.config/i3/wallpaper
+i3-unlock
