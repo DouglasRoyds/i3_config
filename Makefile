@@ -44,7 +44,8 @@ checkinstall:
 	@echo "   $$ ln -s $(pwd)/i3       ~/.config/i3       &&"
 	@echo "     ln -s $(pwd)/i3status ~/.config/i3status &&"
 	@echo "     ln -s $(pwd)/dunst    ~/.config/dunst    &&"
-	@echo "     ls -l ~/.config/i3 ~/.config/i3status ~/.config/dunst"
+	@echo "     ln -s $(pwd)/rofi     ~/.config/rofi     &&"
+	@echo "     ls -l ~/.config/i3 ~/.config/i3status ~/.config/dunst ~/.config/rofi"
 	@echo
 	@echo "You should also add a current temperature script to your crontab:"
 	@echo

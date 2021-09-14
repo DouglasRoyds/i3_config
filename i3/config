@@ -24,12 +24,11 @@ workspace 8 output HDMI-3
 
 # ------------------------------------------- Application key bindings ----------------------------------------------
 
-# quickswitch.py allows you to quickly switch to and locate windows on all your workspaces, using an interactive dmenu prompt:
-#     https://pypi.python.org/pypi/quickswitch-i3
-#     https://github.com/proxypoke/quickswitch-for-i3
-bindsym $mod+d exec dmenu_run
-bindsym $mod+q exec quickswitch.py
 bindsym $mod+Return exec x-terminal-emulator
+
+# https://github.com/davatorium/rofi
+bindsym $mod+d   exec "rofi -show run"
+bindsym Mod1+Tab exec "rofi -show window"
 
 bindsym Control+Mod1+B exec x-terminal-emulator -e edit_time_break_down
 bindsym Control+Mod1+D exec x-terminal-emulator -e print_daily_hours
