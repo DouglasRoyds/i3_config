@@ -48,7 +48,7 @@ checkinstall:
 	@echo
 	@echo "Ensure that the following packages are installed:"
 	@echo
-	@echo "   $$ sudo apt-get install i3 i3status dunst rofi"
+	@echo "   $$ sudo apt-get install i3 i3status curl dunst rofi"
 	@echo
 	@echo "Now you should symlink the configuration files into your home directory:"
 	@echo
