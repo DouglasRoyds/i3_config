@@ -46,6 +46,10 @@ install:
 checkinstall:
 	checkinstall --pkgname=$(PACKAGE) --nodoc
 	@echo
+	@echo "Ensure that the following packages are installed:"
+	@echo
+	@echo "   $$ sudo apt-get install i3 i3status dunst rofi"
+	@echo
 	@echo "Now you should symlink the configuration files into your home directory:"
 	@echo
 	@echo "   $$ ln -s $(pwd)/i3       ~/.config/i3       &&"
