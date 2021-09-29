@@ -128,6 +128,9 @@ focus_follows_mouse yes
 bindsym $mod+Shift+space floating toggle
 floating_modifier $mod
 
+# The Dell MS3121Wt mouse is very highly geared
+exec --no-startup-id xinput set-prop "Dell Computer Corp Dell Universal Receiver Mouse" "libinput Accel Speed" -1.00
+
 # ------------------------------------------- Workspaces ------------------------------------------------------------
 
 # Switch to workspace
