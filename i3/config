@@ -85,8 +85,6 @@ bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
-focus_follows_mouse yes
-
 # Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -118,6 +116,10 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # New windows
 new_window 1pixel
 workspace_layout tabbed
+
+# ------------------------------------------- Mouse -----------------------------------------------------------------
+
+focus_follows_mouse yes
 
 # Mouse moving and resizing
 #     mod+Mouse               Move floating window
