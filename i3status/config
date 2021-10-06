@@ -9,7 +9,7 @@ general {
 order += "cpu_usage"
 order += "disk /home"
 order += "wireless wlx5cd998bfebb5"
-order += "ethernet eno1"
+order += "ethernet enp0s31f6"
 order += "time"
 
 wireless wlx5cd998bfebb5 {
@@ -17,9 +17,9 @@ wireless wlx5cd998bfebb5 {
    format_down = "W: down"
 }
 
-ethernet eno1 {
+ethernet enp0s31f6 {
    format_up = "%ip"
-   format_down = "eno1 down"
+   format_down = "enp0s31f6 down"
 }
 
 battery 0 {
