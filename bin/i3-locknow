@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 # Only if we aren't already locked
-if ! pgrep --exact i3lock; then
+if ! pgrep --exact i3lock >/dev/null; then
    i3-prelock 
    i3lock --nofork --tiling --image ~/.config/i3/wallpaper
    i3-unlock
