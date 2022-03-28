@@ -48,7 +48,7 @@ checkinstall:
 	@echo
 	@echo "Ensure that the following packages are installed:"
 	@echo
-	@echo "   $$ sudo apt-get install i3 i3status curl dunst rofi"
+	@echo "   $$ sudo apt-get install i3-wm i3lock i3status curl dunst rofi udevil"
 	@echo
 	@echo "Now you should symlink the configuration files into your home directory:"
 	@echo
