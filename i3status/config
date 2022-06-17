@@ -8,11 +8,11 @@ general {
 
 order += "cpu_usage"
 order += "disk /home"
-order += "wireless wlx5cd998bfebb5"
+order += "wireless enx60a4b7a54196"
 order += "ethernet enp0s31f6"
 order += "time"
 
-wireless wlx5cd998bfebb5 {
+wireless enx60a4b7a54196 {
    format_up = "W: (%quality at %essid) %ip"
    format_down = "W: down"
 }
