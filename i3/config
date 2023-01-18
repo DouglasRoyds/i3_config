@@ -58,6 +58,7 @@ for_window [class="Gcalctool"] floating enable
 #     I've done it the hard way here, just for fun.
 #     xprop returns the current window ID.
 #     ImageMagick import captures a screenshot of the window.
+#        $ sudo apt-get install x11-utils imagemagick
 # Ctrl-PrtScn
 #     Does it the easy way - using gnome-screenshot, which pops up an interactive box
 bindsym Print exec import -window $(xprop -root _NET_ACTIVE_WINDOW | cut -d' ' -f5) "Screenshot from $(/bin/date +'%Y-%m-%d %H:%M:%S').png"
