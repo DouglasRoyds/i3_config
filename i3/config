@@ -61,7 +61,7 @@ for_window [class="Gcalctool"] floating enable
 #        $ sudo apt-get install x11-utils imagemagick
 # Ctrl-PrtScn
 #     Does it the easy way - using gnome-screenshot, which pops up an interactive box
-bindsym Print exec import -window $(xprop -root _NET_ACTIVE_WINDOW | cut -d' ' -f5) "Screenshot from $(/bin/date +'%Y-%m-%d %H:%M:%S').png"
+bindsym Print exec import -window $(xprop -root _NET_ACTIVE_WINDOW | cut -d' ' -f5) "screenshot-$(/bin/date +'%Y-%m-%d-%H%M%S').png"
 bindsym Control+Print exec gnome-screenshot --interactive
 for_window [class="Gnome-screenshot"] floating enable
 
