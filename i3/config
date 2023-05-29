@@ -26,8 +26,9 @@ workspace 8 output HDMI-2
 
 bindsym $mod+Return exec x-terminal-emulator
 
+# http://xlunch.org
 # https://github.com/davatorium/rofi
-bindsym $mod+d   exec "rofi -show run"
+bindsym $mod+d   exec "xlunch -i /etc/xlunch/entries.dsv --textafter --columns 2"
 bindsym Mod1+Tab exec "rofi -show window"
 
 bindsym Control+Mod1+B exec x-terminal-emulator -e edit_time_break_down
@@ -53,6 +54,7 @@ bindsym XF86AudioLowerVolume exec amixer set Master 3dB-
 # xprop WM_CLASS returns "gcalctool", "Gcalctool" for the calculator.
 # I have to use the capitalised version for this to work.
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="xlunch-windowed"] floating enable
 
 # Print screen
 #     I've done it the hard way here, just for fun.
