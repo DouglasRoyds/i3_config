@@ -19,7 +19,8 @@ docfiles = $(wildcard *.md)
 dot_config = dunst \
 	     i3 \
 	     i3status \
-	     rofi
+	     rofi \
+	     xlunch
 executables = bin/i3-locknow \
               bin/i3-prelock \
               bin/i3-unlock \
