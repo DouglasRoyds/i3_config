@@ -10,8 +10,8 @@ docdir = $(datarootdir)/doc/$(PACKAGE)
 pixmaps = $(datarootdir)/pixmaps/$(PACKAGE)
 DESTDIR = /
 pwd = $(shell pwd)
-hostname = $(shell hostname)
 
+docfiles = $(wildcard *.md)
 executables = bin/i3-locknow \
               bin/i3-prelock \
               bin/i3-unlock \
@@ -19,9 +19,6 @@ executables = bin/i3-locknow \
               bin/current_temperature \
               bin/current_temperature_from_northcott \
               bin/devmon-launch
-
-docfiles = $(wildcard *.md)
-
 imagefiles = pixmaps/floppy-disk.png
 
 help:
