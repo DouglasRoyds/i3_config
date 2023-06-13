@@ -11,7 +11,15 @@ pixmaps = $(datarootdir)/pixmaps/$(PACKAGE)
 DESTDIR = /
 pwd = $(shell pwd)
 
+# i3_config is relative to HOME
+i3_config := $(patsubst %/,%,$(dir $(realpath $(lastword $(MAKEFILE_LIST)))))
+i3_config := $(subst $(HOME)/,,$(i3_config))
+
 docfiles = $(wildcard *.md)
+dot_config = dunst \
+	     i3 \
+	     i3status \
+	     rofi
 executables = bin/i3-locknow \
               bin/i3-prelock \
               bin/i3-unlock \
@@ -24,7 +32,7 @@ imagefiles = pixmaps/floppy-disk.png
 help:
 	@echo "An install-only makefile to allow easy running of checkinstall:"
 	@echo
-	@echo "   $$ sudo make checkinstall"
+	@echo "   $$ make checkinstall"
 	@echo
 	@echo "Installs the following executables:"
 	@echo
@@ -40,22 +48,17 @@ install:
 	@install -v -m664 $(docfiles) $(DESTDIR)$(docdir)
 	@install -v -m664 $(imagefiles) $(DESTDIR)$(pixmaps)
 
-checkinstall:
-	checkinstall --pkgname=$(PACKAGE) --nodoc
+.PHONY: $(dot_config)
+$(dot_config):
+	@install -d $(HOME)/.config
+	@ln -snf ../$(i3_config)/$@ $(HOME)/.config/$@
+	@ls -ld --color $(HOME)/.config/$@
+
+checkinstall: $(dot_config)
+	sudo apt-get install i3-wm i3lock i3status curl dunst imagemagick rofi udevil x11-utils
+	sudo checkinstall --pkgname=$(PACKAGE) --nodoc
 	@echo
-	@echo "Ensure that the following packages are installed:"
-	@echo
-	@echo "   $$ sudo apt-get install i3-wm i3lock i3status curl dunst imagemagick rofi udevil x11-utils"
-	@echo
-	@echo "Now you should symlink the configuration files into your home directory:"
-	@echo
-	@echo "   $$ ln -s $(pwd)/i3       ~/.config/i3       &&"
-	@echo "     ln -s $(pwd)/i3status ~/.config/i3status &&"
-	@echo "     ln -s $(pwd)/dunst    ~/.config/dunst    &&"
-	@echo "     ln -s $(pwd)/rofi     ~/.config/rofi     &&"
-	@echo "     ls -l ~/.config/i3 ~/.config/i3status ~/.config/dunst ~/.config/rofi"
-	@echo
-	@echo "You should also add a current temperature script to your crontab:"
+	@echo "Add a current temperature script to your crontab:"
 	@echo
 	@echo "   $$ crontab -e"
 	@echo "   */15 * * * * /usr/local/bin/current_temperature_from_northcott > ~/.current_temperature"
