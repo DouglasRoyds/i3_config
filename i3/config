@@ -28,7 +28,7 @@ bindsym $mod+Return exec x-terminal-emulator
 
 # http://xlunch.org
 # https://github.com/davatorium/rofi
-bindsym $mod+d   exec "xlunch -i /etc/xlunch/entries.dsv --textafter --columns 2"
+bindsym $mod+d   exec "xlunch -i ~/.xlunch/entries.dsv --textafter --columns 2"
 bindsym Mod1+Tab exec "rofi -show window"
 
 bindsym Control+Mod1+B exec x-terminal-emulator -e edit_time_break_down
