@@ -37,6 +37,7 @@ bindsym Control+Mod1+F exec firefox
 bindsym Control+Mod1+K exec keepass2_autotype
 bindsym Control+Mod1+M exec thunderbird -compose
 bindsym Control+Mod1+N exec nautilus
+bindsym Control+Mod1+O exec firefox --new-window https://outlook.office.com/mail
 bindsym Control+Mod1+P exec pomodoro
 bindsym Control+Mod1+T exec thunderbird
 
