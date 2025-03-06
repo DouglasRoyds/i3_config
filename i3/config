@@ -8,6 +8,20 @@ bar {
    mode hide
 }
 
+# ------------------------------------------- Control ---------------------------------------------------------------
+
+# Reload, restart (preserving layout and session), log out
+bindsym $mod+Shift+C reload
+bindsym $mod+Shift+R restart
+bindsym $mod+Shift+E exec --no-startup-id i3-prelock; exit
+
+# Kill focused window
+bindsym $mod+Shift+Q kill
+
+# Screen-lock
+bindsym Control+Mod1+L exec i3-locknow
+exec --no-startup-id xautolock -time 5 -locker i3-locknow
+
 # ------------------------------------------- Display ---------------------------------------------------------------
 # View available outputs:
 #     $ xrandr
@@ -159,20 +173,6 @@ bindsym $mod+Shift+percent move workspace 5
 bindsym $mod+Shift+asciicircum move workspace 6
 bindsym $mod+Shift+ampersand move workspace 7
 bindsym $mod+Shift+asterisk move workspace 8
-
-# ------------------------------------------- Control ---------------------------------------------------------------
-
-# Kill focused window
-bindsym $mod+Shift+Q kill
-
-# Screen-lock
-bindsym Control+Mod1+L exec i3-locknow
-exec --no-startup-id xautolock -time 5 -locker i3-locknow
-
-# Reload, restart (preserving layout and session), log out
-bindsym $mod+Shift+C reload
-bindsym $mod+Shift+R restart
-bindsym $mod+Shift+E exec --no-startup-id i3-prelock; exit
 
 # ------------------------------------------- Resize mode -----------------------------------------------------------
 
