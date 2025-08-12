@@ -27,7 +27,8 @@ executables = bin/i3-locknow \
               bin/i3-status-append \
               bin/current_temperature \
               bin/current_temperature_from_northcott \
-              bin/devmon-launch
+              bin/devmon-launch \
+              bin/generate-xlunch-icons
 imagefiles = pixmaps/floppy-disk.png
 
 help:
@@ -56,11 +57,15 @@ $(dot_config):
 	@ls -ld --color $(HOME)/.config/$@
 
 checkinstall: $(dot_config)
-	sudo apt-get install i3-wm i3lock i3status curl dunst imagemagick rofi udevil x11-utils xautolock
+	sudo apt-get install i3-wm i3lock i3status curl dunst imagemagick rofi udevil x11-utils xautolock xlunch
 	sudo checkinstall --pkgname=$(PACKAGE) --nodoc
 	@echo
 	@echo "Add a current temperature script to your crontab:"
 	@echo
 	@echo "   $$ crontab -e"
 	@echo "   */15 * * * * /usr/local/bin/current_temperature_from_northcott > ~/.current_temperature"
+	@echo
+	@echo "Update xlunch icons:"
+	@echo
+	@echo "   $$ generate-xlunch-icons"
 
