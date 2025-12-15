@@ -28,7 +28,7 @@ executables = bin/i3-locknow \
               bin/current_temperature \
               bin/current_temperature_from_northcott \
               bin/devmon-launch \
-              bin/generate-xlunch-icons
+              bin/genentries.desktop.sh
 imagefiles = pixmaps/floppy-disk.png
 
 help:
@@ -67,5 +67,5 @@ checkinstall: $(dot_config)
 	@echo
 	@echo "Update xlunch icons:"
 	@echo
-	@echo "   $$ generate-xlunch-icons"
+	@echo "   $$ genentries.desktop.sh"
 
