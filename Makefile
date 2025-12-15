@@ -57,7 +57,7 @@ $(dot_config):
 	@ls -ld --color $(HOME)/.config/$@
 
 checkinstall: $(dot_config)
-	sudo apt-get install i3-wm i3lock i3status curl dunst imagemagick rofi udevil x11-utils xautolock xlunch
+	sudo apt-get install i3-wm i3lock i3status curl dunst imagemagick rofi udevil x11-utils xautolock xlunch libimlib2t64
 	sudo checkinstall --pkgname=$(PACKAGE) --nodoc
 	@echo
 	@echo "Add a current temperature script to your crontab:"
